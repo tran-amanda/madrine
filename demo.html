@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+         GIT418: jQuery Demo Page
+         Author: Amanda Tran
+         Date: December 4, 2020
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Madrine - jQuery Demo
+    </title>
+    <meta name="description" content="Enter description.">
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="styles/tomorrow-night.css">
+    <script src="scripts/modernizr.custom.05819.js" type="text/javascript">
+</script>
+    <script src="scripts/highlight.pack.js" type="text/javascript">
+</script>
+    <script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=
+    "sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous" type=
+    "text/javascript">
+</script>
+    <script src="scripts/menu.js" type="text/javascript">
+</script>
+    <link rel="stylesheet" href="https://use.typekit.net/dcv7aki.css" type="text/css">
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>
+          Simple Responsive Menu with jQuery
+        </h1>
+        <nav class="nav top container" role="navigation">
+          <a href="index.html" class="logo">Madrine</a> <a href="about.html">Learn
+          jQuery</a> <a href="demo.html" class="link onpage">jQuery Demo</a>
+          <div id="burgerIcon" aria-label="Open">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div id="close" aria-label="Close">
+              &#10006;
+            </div>
+        </nav>
+      </header>
+      <article class="article container">
+        <div class="headline container">
+          <nav class="nav crumbs">
+            <a href="index.html">Home</a> / <a href="demo.html" class="link onpage">jQuery
+            Demo</a>
+          </nav>
+          <h2>
+            Simple Responsive Menu with jQuery
+          </h2><span class="author">By Amanda Tran &#183; December 2020</span>
+        </div>
+        <div class="summary container">
+          <div class="summary item">
+            <p class="headline body">
+              With CSS media queries and the ability to alter an HTML&#8217;s element
+              styling through the <code class="jquery"><span class=
+              "key">css()</span></code> and <code class="jquery"><span class=
+              "key">removeAttr()</span> methods</code>, you can create a responsive and
+              interactive navigation menu without removing or adding new elements to the
+              DOM. Using jQuery allows you to easily select and access an existing HTML
+              element to edit an <code>attribute</code> by manipulating its properties and
+              values.
+            </p>
+            <p class="headline body">
+              The <code class="jquery"><span class="key">css()</span> method</code> also
+              accesses the values of DOM elements&#8217; style properties, which is used to
+              check if the menu is in an open or closed state for this demo.
+            </p>
+          </div>
+          <div class="summary item">
+            <a href="https://jsfiddle.net/mandurins/fex51Lkv/6/" class="link demo">Demo on
+            JSFiddle</a>
+          </div>
+        </div>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3 class="step">
+              1.
+            </h3>
+            <h3>
+              Set up the JavaScript
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              To make the menu icon clickable and enable the jQuery library for JavaScript,
+              add two <code class="html"><span class="key">&lt;script&gt;</span>
+              tags</code> to the <code class="html"><span class="key">&lt;head&gt;</span>
+              tag</code> in your HTML document. The first <code class="html"><span class=
+              "key">&lt;script&gt;</span> tag</code> enables the jQuery library by using
+              <a href="https://code.jquery.com" class="link">the CDN link listed on the
+              official website</a>. For this example, I use the slim and minified version
+              of the latest stable release (jQuery Core 3.5.1).
+            </p>
+            <pre>
+    <code class="html">
+      &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"&gt;&lt;/script&gt;
+    </code>
+  </pre>
+            <p>
+              Add the second <code class="html"><span class="key">&lt;script&gt;</span>
+              tag</code>, which contents will be replaced the function to change the menu
+              appearance later in the demo.
+            </p>
+            <pre>
+    <code class="html">
+      &lt;script&gt;
+          //code to add...
+      &lt;/script&gt;  
+    </code>
+  </pre>
+          </div>
+        </div>
+        <hr>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3 class="step">
+              2.
+            </h3>
+            <h3>
+              Create the Navigation Menu
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              The menu consists of an unordered list of items which will be styled with CSS
+              to look like a proper navigation bar. The <code class="html"><span class=
+              "key">style</span> attribute</code> of the <code class="html"><span class=
+              "key">&lt;ul&gt;</span> tag</code> and its children (the <code class=
+              "html"><span class="key">&lt;li&gt;</span> tags</code>) will be altered with
+              jQuery to display an opened menu state later.
+            </p>
+            <pre>
+    <code class="html">
+      &lt;ul id="nav"&gt;
+        &lt;li&gt;Link 1&lt;/li&gt;
+        &lt;li&gt;Link 2&lt;/li&gt;
+        &lt;li&gt;Link 3&lt;/li&gt;
+        &lt;li id="icon" onclick="changeMenu()"&gt;
+          &amp;#10006;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    </code>
+  </pre>
+            <p class="note container">
+              <span class="note">Note:</span> Notice the <code class="html"><span class=
+              "key">&lt;li&gt;</span> tag</code> for our menu icon includes the
+              <code class="html"><span class="key">onclick</span> event attribute</code> to
+              call the <code class="html"><span class="key">changeMenu()</span>
+              function</code>, which sets new <code class="html"><span class=
+              "key">style</span> attribute</code> property-values later on. The
+              <code class="html"><span class="key">onclick</span> event attribute</code>
+              attaches the function call to its proper HTML element (the menu icon) for
+              click events.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3 class="step">
+              3.
+            </h3>
+            <h3>
+              Style the Navigation Menu
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              The unordered list is styled like a navigation bar using a <code class=
+              "css"><span class="key">flexbox</span> layout</code> and by removing the list
+              decoration on links with the <code class="css"><span class=
+              "key">list-style</span> property</code>. Notice that the HTML element for the
+              menu icon is hidden by default as the <code class="css"><span class=
+              "key">display</span> property</code> is set to <code class="css">none</code>.
+              However, with the media query, menu links are hidden instead and only the
+              menu icon is visible at the <code><span class="key">600px</span>
+              breakpoint</code>.
+            </p>
+            <pre>
+    <code class="css">
+      #nav { /*styles for nav bar*/
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+        list-style: none;
+      }
+    
+      li#icon { /*hide menu button default*/
+        display: none;
+      }
+    
+      @media (max-width: 600px) { /*hide links and show burger menu for smaller screens*/
+        #nav li {
+          display: none;
+        }
+    
+        li#icon {
+          display: block;
+        }
+      }
+    </code>
+  </pre>
+            <p class="note container">
+              <span class="note">Note:</span> For this demo, we use CSS statements only to
+              style the default <span class="italic">closed</span> appearance of the
+              navigation menu. The styles to display an <span class="italic">open</span>
+              state are added with jQuery, and the script cannot make any direct changes to
+              your CSS file or embedded CSS. Keep in mind how styles will be overwritten or
+              reverted with jQuery&#8217;s ability (and limitations) in regards to
+              accessing DOM elements.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3 class="step">
+              4.
+            </h3>
+            <h3>
+              Add the Menu&#8217;s <span class="italic">Open</span> State
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              Adjust the navigation menu to display as fullscreen with collapsed links by
+              changing the <code><span class="key">#nav</span> element</code> (remember,
+              the unordered list) <code class="html"><span class="key">style</span>
+              attribute</code> CSS properties using jQuery&#8217;s <code class=
+              "jquery"><span class="key">css()</span> method</code>. Set
+              <code>column</code> and <code>100vh</code> values for the <code class=
+              "css"><span class="key">flex-flow</span></code> and <code class=
+              "css"><span class="key">height</span> properties</code> to achieve the
+              <span class="italic">open</span> appearance. To unhide the links, set the
+              <code class="css"><span class="key">display</span> property</code> to
+              <code class="css">block</code> for <code><span class="key">#nav li</span>
+              elements</code>. This change is applied to every HTML element matching the
+              jQuery selector.
+            </p>
+            <pre>
+    <code class="javascript">
+      //set new style attribute properties and values for open appearance
+      $("#nav").css({ 
+        "flex-flow": "column", //collapse links 
+        height: "100vh" //nav container to fullscreen
+      });
+      $("#nav li").css("display", "block" ); //show links  
+    </code>       
+  </pre>
+            <p class="note container">
+              <span class="note">Note:</span> Notice how the <code class=
+              "jquery"><span class="key">css()</span> method</code> creates display changes
+              by manipulating the <code class="html"><span class="key">style</span>
+              attribute</code> within the selected element&#8217;s HTML tag. To see this in
+              action, watch the HTML document change in your browser&#8217;s Inspector View
+              as the script runs.
+            </p>
+            <h4>
+              css() Method Syntax
+            </h4>
+            <p>
+              The <code class="jquery"><span class="key">css()</span> method</code> syntax
+              has two parameters: <code class="jquery"><span class="key">css(<span class=
+              "inner">property, value</span>)</span></code>, however the <code class=
+              "html"><span class="key">value</span> parameter</code> is optional. The
+              <code class="jquery"><span class="key">css()</span> method</code> will not
+              set new values without a value argument, and instead returns the value of the
+              first matched property. The <code class="html"><span class=
+              "key">property</span> parameter</code> is required.
+            </p>
+            <p>
+              To set multiple properties and their values using the <code class=
+              "jquery"><span class="key">css()</span> method</code>, the statement must be
+              enclosed within braces {} inside the method parenthesis. The property name
+              and value are also separated with colons (:) and commas (,) are instead used
+              to separate each property-value statement.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3 class="step">
+              5.
+            </h3>
+            <h3>
+              Add the Menu&#8217;s <span class="italic">Closed</span> State
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              Instead of using the <code class="jquery"><span class="key">css()</span>
+              method</code> to style the navigation menu back to its default appearance,
+              use the <code class="jquery"><span class="key">removeAttr()</span>
+              method</code> to remove the <code class="css"><span class="key">style</span>
+              attribute</code> changes. By removing the <code class="css"><span class=
+              "key">style</span> attribute</code> from the selected elements, the HTML
+              elements only use the CSS styles set from the stylesheet or styles in the
+              <code class="html"><span class="key">&lt;head&gt;</span> tag</code>.
+            </p>
+            <pre>
+    <code class="javascript">
+      //remove style changes to revert menu to default closed appearance
+      $("#nav").removeAttr("style");
+      $("#nav li").removeAttr("style");
+    </code>
+  </pre>
+            <p class="note container">
+              <code class="css"><span class="key">style</span> attribute</code> properties
+              and their values from the selected HTML elements. Be sure to style the
+              default navigation menu appearance with CSS within your stylesheet or
+              embedded CSS, or you will need to write extra code with the <code class=
+              "jquery"><span class="key">css()</span> method</code> to account for styles
+              within the <code class="css"><span class="key">style</span> attribute</code>.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3 class="step">
+              6.
+            </h3>
+            <h3>
+              Check the Menu State with If/Else Statements
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              To ensure that the menu responds with the appropriate changes, we use an
+              <code><span class="key">if/else</span> statement</code> which checks the
+              value of the <code><span class="key">flex-direction</span> property</code>
+              for the <code><span class="key">#nav</span> element</code>. The value of the
+              <code><span class="key">flex-direction</span> property</code> is accessed
+              every time the function is called, or in other words&#8212; when the menu
+              icon is clicked. Since the <code><span class="key">flex-direction</span>
+              property</code> is set to <code>row</code> by default from the stylesheet,
+              the <code><span class="key">if</span> statement</code> only executes when the
+              menu is open; as the <code><span class="key">flex-direction</span>
+              property</code> value is set to <code>column</code> in the <span class=
+              "italic">open</span> state.
+            </p>
+            <pre>
+    <code class="javascript">
+      if ($("#nav").css("flex-direction") === "column") { //menu is in open state
+        //statements...                 
+      } else { //menu is in closed state
+        //statements...
+      }
+    </code>
+  </pre>
+          </div>
+        </div>
+        <hr>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3 class="step">
+              7.
+            </h3>
+            <h3>
+              The Final Code Output
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              The HTML code includes embedded CSS styles in the <code class=
+              "html"><span class="key">&lt;head&gt;</span> tag</code>, along with embedded
+              JavaScript which includes the <code class="jquery"><span class=
+              "key">changeMenu()</span> function</code> that updates the respective HTML
+              elements&#8217; <code><span class="key">style</span> attribute</code> to
+              display <span class="italic">open</span> and <span class=
+              "italic">closed</span> appearances. The jQuery library is enabled in the
+              first <code class="html"><span class="key">&lt;script&gt;</span> tag</code>.
+            </p>
+            <pre>
+    <code class="html">
+      &lt;!DOCTYPE html&gt;
+      &lt;html lang="en"&gt;
+      
+        &lt;head&gt;
+          &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+          integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" 
+          crossorigin="anonymous"&gt;&lt;/script&gt;
+          &lt;script&gt;
+            function changeMenu() { //function to run when user clicks on menu icon
+      
+              if ($("#nav").css("flex-direction") === "column") { //menu is in open state
+                //remove jquery css changes to revert menu to closed state
+                $("#nav").removeAttr("style");
+                $("#nav li").removeAttr("style");
+      
+              } else { //menu is in closed state
+                $("#nav").css({
+                  "flex-direction": "column", //arrange column/list links
+                  height: "100vh" //nav container to full screen
+                });
+                $("#nav li").css("display", "block"); //show links 
+              }
+            }
+      
+          &lt;/script&gt;
+          &lt;style&gt;
+            #nav {
+              /*styles for nav bar*/
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              width: 100%;
+              list-style: none;
+            }
+      
+            li#icon {
+              /*hide menu button default*/
+              display: none;
+            }
+      
+            @media (max-width: 600px) {
+      
+              /*hide links and show burger menu for smaller screens*/
+              #nav li {
+                display: none;
+              }
+      
+              li#icon {
+                display: block;
+              }
+            }
+      
+          &lt;/style&gt;
+        &lt;/head&gt;
+      
+        &lt;body&gt;
+          &lt;ul id="nav"&gt;
+            &lt;li&gt;Link 1&lt;/li&gt;
+            &lt;li&gt;Link 2&lt;/li&gt;
+            &lt;li&gt;Link 3&lt;/li&gt;
+            &lt;li id="icon" onclick="changeMenu()"&gt;
+              &amp;#10006;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/body&gt;
+      
+      &lt;/html&gt;
+    </code>
+  </pre>
+          </div>
+        </article>
+        </div>
+        <footer class="footer container">
+          <a href="index.html" class="logo">Madrine</a>
+          <p>
+            All content is for educational purposes. &#169; 2020 Amanda Tran
+          </p>
+        </footer>
+    </div>
+  </body>
+</html>

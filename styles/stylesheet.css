@@ -1,0 +1,521 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+@import url("normalize.css");
+* {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+
+html {
+  /* ------ Global Styles ------ */
+  margin: 0 auto;
+  --code: #1c120dbb;
+  --codeBackground: #dca69354;
+  --accent: #9A5F3D;
+  --accent2: #9a5f3d44;
+  --accent3: #BD8D75;
+  --bg: #FCF9F5;
+  --body: #1C120D;
+  --maxWidth: 1600px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  /* ------ Max Screen Styles ------ */
+  --gap: 3em;
+  --pad: 40px 15%;
+  --padHead: 40px 5%;
+  --bodySize: 16px;
+  --bodyMargin: 20px 0;
+  --bodyLineHeight: 1.35em;
+  --headingMargin: 40px 0;
+  --navLink: 18px;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+.wrap {
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+}
+
+.footer.container {
+  padding: var(--padHead);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #1c120d88;
+  background-image: -o-linear-gradient(left, #ccc, #1c120d88, #ccc);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(#1c120d88), to(#ccc));
+  background-image: linear-gradient(to right, #ccc, #1c120d88, #ccc);
+}
+
+
+/* ------------ N1. Navigation ------------ */
+
+.nav.top {
+  font-family: classico-urw, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--navLink);
+  color: var(--body);
+}
+
+.nav.top.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 150px 150px;
+  grid-template-columns: auto 150px 150px;
+  justify-items: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: var(--padHead);
+}
+
+#burgerIcon div {
+  width: 35px;
+  height: 3px;
+  margin: 6px 0;
+  display: none;
+}
+
+#burgerIcon div#close {
+  width: unset;
+  height: unset;
+  display: none;
+  font-size: 36px;
+}
+
+
+/* ------------ M1. Main ------------ */
+
+.main.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 33% var(--gap) auto;
+  grid-template-columns: 33% auto;
+  grid-gap: var(--gap);
+  justify-items: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  padding: var(--pad);
+}
+
+.main.item {
+  min-width: 0;
+  min-height: 0;
+  max-width: 800px;
+  width: 100%;
+}
+
+
+/* ------------ A1. Article Headline ------------ */
+
+.headline.container {
+  padding: var(--pad);
+  background-color: var(--accent);
+  color: var(--bg);
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headline.body {
+  max-width: 650px;
+}
+
+.summary.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% var(--gap) auto;
+  grid-template-columns: 70% auto;
+  justify-items: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: var(--gap);
+  background-color: var(--accent2);
+  padding: var(--pad);
+}
+
+a.link.demo {
+  display: block;
+  padding: 30px;
+  border: 3px solid;
+  border-color: var(--body);
+}
+
+
+/* ------------ A2.Article Body ------------ */
+
+.article.body.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 300px var(--gap) auto;
+  grid-template-columns: 300px auto;
+  grid-gap: var(--gap);
+  justify-items: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  padding: var(--pad);
+}
+
+.article.body.item {
+  min-width: 0;
+  min-height: 0;
+  max-width: 700px;
+  width: 100%;
+}
+
+.article.body.item.heading {
+  width: unset;
+  padding: 30px;
+  background-color: var(--body);
+}
+
+
+/* ------------ T1. Typography General ------------ */
+
+p {
+  font-family: coranto-2, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--bodySize);
+  line-height: var(--bodyLineHeight);
+  color: var(--body);
+  margin: var(--bodyMargin)
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+footer p {
+  font-family: 'classico-urw', sans-serif;
+  font-size: var(--bodySize);
+  color: inherit;
+  margin: 0;
+}
+
+.logo {
+  font-family: garamond-premier-pro-display, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 54px;
+}
+
+footer .logo {
+  font-size: 36px
+}
+
+p code {
+  font-family: source-code-pro, monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--code);
+  background-color: var(--codeBackground);
+  display: inline-block;
+  margin: 1px 0;
+}
+
+.key {
+  color: var(--accent);
+}
+
+.inner {
+  color: var(--code);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.note.container  {
+  margin: 0;
+}
+
+
+/* ------------ T2. Typography Links ------------ */
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+p .link {
+  text-decoration: underline;
+}
+
+.nav.crumbs,
+.author,
+.link.demo,
+.read {
+  font-size: var(--navLink);
+  font-family: coranto-2-headline, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.read {
+  display: inline-block;
+  border: 2px solid;
+  border-color: var(--body);
+  padding: 10px;
+}
+
+.nav.top a.link.onpage {
+  text-decoration: underline;
+  color: var(--accent3);
+}
+
+.nav.crumbs a.link.onpage {
+  color: var(--bg);
+  text-decoration: unset;
+}
+
+.nav.crumbs a.link.onpage:hover {
+  color: var(--body)
+}
+
+h3 a:hover {
+  color: var(--body);
+}
+
+p .link:hover {
+  text-decoration: none;
+  color: var(--accent)
+}
+
+a.link.demo:hover,
+.read:hover {
+  color: var(--bg);
+  background-color: var(--accent3);
+  border-color: var(--accent3)
+}
+
+/* ------ T3. Typography Headings ------ */
+
+h1 {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+}
+
+h2 {
+  font-family: classico-urw, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.headline h2 {
+  font-size: 90px;
+  margin: var(--headingMargin);
+  max-width: 1000px;
+}
+
+.main.container h3 {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--body)
+}
+
+h3 {
+  font-size: 32px;
+  font-family: coranto-2, serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--bg);
+}
+
+h3.step {
+  font-family: coranto-2-headline, serif;
+  font-size: 100px;
+  font-weight: 600;
+}
+
+h4 {
+  color: var(--accent);
+  font-family: coranto-2, serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.main.container h4 {
+  color: var(--body);
+  font-family: classico-urw, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* ------ MQ. Media Queries ------ */
+
+@media (max-width: 1000px) {
+  /* ------ Medium Screen Styles ------ */
+  html{
+    --gap: 3em;
+    --pad: 40px 5%;
+    --navLink: 18px;
+  }
+  /* ------ A1a. Article Headline ------ */
+  .summary.container {
+    -ms-grid-columns: auto var(--gap) auto;
+    grid-template-columns: auto auto;
+  }
+  .summary.item:nth-child(2) {
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  /* ------ A2a. Article Body ------ */
+  .article.body.container {
+    -ms-grid-columns: 200px var(--gap) auto;
+    grid-template-columns: 200px auto;
+  }
+  /* ------ T1a. Typography ------ */
+  .headline h2,
+  h3.step {
+    font-size: 72px;
+  }
+  .main.container h3 {
+    font-size: 28px;
+  }
+  .main.container h4 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  /* ------ Small Screen Styles ------ */
+  html {
+    --gap: 1em;
+    --pad: 40px 4%;
+    --padHead: 20px 4%;
+    --headingMargin: 30px 0;
+  }
+  /* ------ T1b. Typography ------ */
+  .main.container h3 {
+    font-size: 26px;
+  }
+  .article.body.item p {
+    margin-bottom: 20px;
+  }
+  .headline h2,
+  h3.step {
+    font-size: 48px;
+  }
+  .nav.crumbs,
+  .author {
+    font-size: 16px;
+  }
+  .summary.container p:last-child {
+    margin-bottom: 20px;
+  }
+  .article.body.container p:first-child {
+    margin-top: 20px;
+  }
+  /* ------ N1b. Navigation ------ */
+  .nav.top>* {
+    /*Hide links*/
+    display: none;
+  }
+  .nav.top a.logo {
+    display: block;
+    font-size: 230%;
+    margin-left: 35px;
+  }
+  .nav.top a:hover {
+    background-color: var(--codeBackground);
+  }
+  .nav.top a.logo:hover {
+    background-color: unset
+  }
+  .nav.top.container {
+    -ms-grid-columns: auto 35px;
+    grid-template-columns: auto 35px;
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .nav.top a.currentPage {
+    color: inherit;
+    text-decoration: none;
+  }
+  #burgerIcon div {
+    /*Show burger menu*/
+    background-color: var(--body);
+    display: block
+  }
+  #burgerIcon {
+    display: block;
+  }
+  /* ------ A1b. Article Headline ------ */
+  .summary.container {
+    -ms-grid-columns: auto;
+    grid-template-columns: auto;
+    justify-items: center;
+    padding-bottom: 60px
+  }
+  /* ------ A2b. Article Body ------ */
+  .article.body.container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto;
+    grid-template-columns: auto;
+    justify-items: center;
+    grid-gap: 0;
+    padding: 0
+  }
+  .article.body.item {
+    padding: 0px 4%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .article.body.item.heading {
+    min-width: 0;
+    min-height: 0;
+    padding: 40px 4%;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+         GIT418: Learn jQuery Page
+         Author: Amanda Tran
+         Date: December 4, 2020
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Madrine - Learn jQuery
+    </title>
+    <meta name="description" content="Enter description.">
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="styles/tomorrow-night.css">
+    <script src="scripts/modernizr.custom.05819.js" type="text/javascript">
+</script>
+    <script src="scripts/highlight.pack.js" type="text/javascript">
+</script>
+    <script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity=
+    "sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous" type=
+    "text/javascript">
+</script>
+    <script src="scripts/menu.js" type="text/javascript">
+</script>
+    <link rel="stylesheet" href="https://use.typekit.net/dcv7aki.css" type="text/css">
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>
+          Learn jQuery Basics
+        </h1>
+        <nav class="nav top container" role="navigation">
+          <a href="index.html" class="logo">Madrine</a> <a href="about.html" class="link onpage">Learn
+          jQuery</a> <a href="demo.html">jQuery Demo</a>
+          <div id="burgerIcon" aria-label="Open">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div id="close" aria-label="Close">
+              &#10006;
+            </div>
+        </nav>
+      </header>
+      <article class="article container">
+        <div class="headline container">
+          <nav class="nav crumbs">
+            <a href="index.html">Home</a> / <a href="demo.html" class="link onpage">Learn
+            jQuery</a>
+          </nav>
+          <h2>
+            Getting Started with jQuery
+          </h2><span class="author">By Amanda Tran &#183; December 2020</span>
+        </div>
+        <div class="summary container">
+          <div class="summary item">
+            <p class="headline body">
+              Discover how to write basic jQuery statements and utilize jQuery&#8217;s
+              distinguished selector feature to perform basic tasks. Some examples
+              outlined include traversing the Document Object Model and accessing data of
+              HTML elements.
+            </p>
+            <p class="headline body">
+              This article covers the basic fundamentals of jQuery API (syntax, usage,
+              etc.). To see jQuery in action, refer to my demo <a href="demo.html" class=
+              "italic link">Simple Responsive Menu with jQuery.</a>
+            </p>
+          </div>
+          <div class="summary item">
+            <a href="demo.html" class="link demo">Simple Responsive Menu with jQuery
+            </a>
+          </div>
+        </div>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3>
+              Writing Basic jQuery Statements
+            </h3>
+          </div>
+          <div class="article body item">
+            <p>
+              All jQuery statements start with the dollar symbol ($), followed by code
+              that selects HTML elements called <code>selectors</code>, wrapped in
+              quotation marks and parenthesis. Following the dollar symbol ($) is the
+              <code>selector</code>, then a period to denote a <code>method</code> and
+              its respective parenthesis. Finally, the jQuery statement ends with a
+              semicolon.
+            </p>
+            <pre>
+  <code class="javascript">
+      $("selector").method();
+  </code>
+</pre>
+            <p>
+              In most cases, a jQuery statement which has a <code>selector</code> but
+              does not include a <code>method</code> will run a DOM search for HTML
+              elements, returning the matching elements. Keep in mind that usage of the
+              dollar symbol ($) is not limited only to selecting HTML elements. This is
+              because the dollar symbol ($) is shorthand for <code>jQuery()</code> which
+              can also manipulate JavaScript objects, albeit with limitations.
+            </p>
+            <h4>
+              jQuery Selectors
+            </h4>
+            <p>
+              <code>Selectors</code> in jQuery are written in the same syntax as
+              <code><span class="key">CSS</span> Selectors</code>, unlike plain
+              JavaScript. Thus, selecting an HTML element with their class (.), id (#),
+              or tag name follows the same syntax rules.
+            </p>
+            <pre>
+   <code class="javascript">
+      $("#example"); //select elements with the id named example
+   </code>
+</pre>
+            <h4>
+              jQuery Methods
+            </h4>
+            <p>
+              <code>Methods</code> in jQuery follow the selector with a period symbol (.)
+              and have different operations based on the method being called.
+            </p>
+            <pre>
+   <code class="javascript">
+      //insert Your Content at the end of every div element
+      $("div").append("Your Content"); 
+   </code>
+</pre>
+          </div>
+        </div>
+        <hr>
+        <div class="article body container">
+          <div class="article body item heading">
+            <h3>
+              The Benefits of jQuery
+            </h3>
+          </div>
+          <div class="article body item">
+            <p class="no-pre">
+              The main benefit of using jQuery over plain JavaScript is in its many
+              features which allow users to code for efficiency and speed.
+            </p>
+            <p class="no-pre">
+              For example, selecting a specific set of HTML elements nested within many
+              other elements is made simple by traversing <code>methods</code>. If you
+              needed to traverse up the DOM Tree, the <code><span class=
+              "key">parent()</span> method</code> selects the element one level higher
+              than its <code>selector</code> element. Combining this traversal method
+              with other operations allows users to make powerful changes to multiple
+              HTML elements with shorter code.
+            </p>
+            <p class="no-pre">
+              Additionally, selecting and accessing data is also simpler with jQuery. An
+              example demonstrating this technique is with the <code><span class=
+              "key">css()</span> method</code>, which I use in my jQuery demo. In the
+              demo, I select an HTML element and check the values of its style
+              properties. See this example on how to use jQuery methods for the web in my
+              demo, <a href="demo.html" class="link italic">Simple Responsive Menu with
+              jQuery.</a>
+            </p>
+            <p class="no-pre">
+              For more information on the capabilities of jQuery, <a href=
+              "https://api.jquery.com/" class="link">visit the official API documentation
+              page</a>.
+            </p>
+          </div>
+        </div>
+    </article>
+      <footer class="footer container">
+        <a href="index.html" class="logo">Madrine</a>
+        <p>
+          All content is for educational purposes. &#169; 2020 Amanda Tran
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
