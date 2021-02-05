@@ -79,8 +79,8 @@ hr {
 .nav.top.container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto 150px 150px;
-  grid-template-columns: auto 150px 150px;
+  -ms-grid-columns: auto 150px 150px 100px;
+  grid-template-columns: auto 150px 150px 100px;
   justify-items: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
