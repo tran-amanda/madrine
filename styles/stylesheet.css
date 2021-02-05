@@ -54,6 +54,7 @@ body {
 
 .footer.container {
   padding: var(--padHead);
+  margin-top: 10%;
 }
 
 hr {
@@ -427,24 +428,31 @@ h4 {
   /* ------ Small Screen Styles ------ */
   html {
     --gap: 1em;
-    --pad: 40px 4%;
-    --padHead: 20px 4%;
-    --headingMargin: 30px 0;
+    --pad: 20px 4%;
+    --padHead: 10px 4%;
+    --headingMargin: 20px 0;
   }
   /* ------ T1b. Typography ------ */
   .main.container h3 {
-    font-size: 26px;
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  .main.container h4 {
+    font-size: 14px;
   }
   .article.body.item p {
     margin-bottom: 20px;
   }
   .headline h2,
-  h3.step {
-    font-size: 48px;
+  h3.step,
+  .article.body.item.heading h3 {
+    font-size: 24px;
   }
   .nav.crumbs,
   .author {
-    font-size: 16px;
+    font-size: 14px;
   }
   .summary.container p:last-child {
     margin-bottom: 20px;
@@ -513,7 +521,7 @@ h4 {
   .article.body.item.heading {
     min-width: 0;
     min-height: 0;
-    padding: 40px 4%;
+    padding: 20px 4%;
     width: 100%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
